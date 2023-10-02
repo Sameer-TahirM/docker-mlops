@@ -23,8 +23,8 @@ jobs:
 
     - name: build image and upload
       run: |
-        docker build -t python-app2:latest .
-        docker push python-app2:latest
+        docker build -t sameertahir23/mlops-images:latest .
+        docker push sameertahir23/mlops-images:latest
 
-    # - name: run container
-    #   run: docker run -d -p 5000:8000 python-app2:latest
+    - name: run container
+      run: docker run -d -p 5000:8000 sameertahir23/mlops-images:latest
