@@ -2,7 +2,8 @@ name: docker-workflow
 
 on:
   push:
-    branch: master
+    branches: 
+      - master
 
 
 jobs:
@@ -10,16 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      name: Login to hub
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to hub
       uses: docker/login-action@v1
       with:
         username: sameertahir23
         password: sameer1@3
 
-      name: build image and upload
+    - name: build image and upload
       run: |
         docker build -t python-app2:latest .
         docker push python-app2:latest
 
-      name: run container
+    - name: run container
       run: docker run -d -p 5000:8000 python-app2:latest
