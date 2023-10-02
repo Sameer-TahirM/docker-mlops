@@ -26,5 +26,5 @@ jobs:
         docker build -t python-app2:latest .
         docker push python-app2:latest
 
-    - name: run container
-      run: docker run -d -p 5000:8000 python-app2:latest
+    # - name: run container
+    #   run: docker run -d -p 5000:8000 python-app2:latest
